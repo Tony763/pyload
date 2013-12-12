@@ -99,7 +99,7 @@ class IRCInterface(Thread, Hook):
         # connect to IRC etc.
         self.sock = socket.socket()
         host = self.getConfig("host")
-        self.sock.connect((host, self.getConfig("port")))
+        self.sock.connect(("host", self.getConfig("port")))
         nick = self.getConfig("nick")
         self.sock.send("NICK %s\r\n" % nick)
         self.sock.send("USER %s %s bla :%s\r\n" % (nick, host, nick))
